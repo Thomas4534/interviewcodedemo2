@@ -13,7 +13,7 @@ import Icon1 from "@/public/images/icon-1.svg";
 import Icon2 from "@/public/images/icon-2.svg";
 import Icon3 from "@/public/images/icon-3.svg";
 import Icon4 from "@/public/images/icon-4.svg";
-import { Sparkles, Zap, Cpu, Brain, Users, Scale } from "lucide-react";
+import { Sparkles, Zap, Cpu, Brain, Users, Scale, Code, Shield, Clock, TrendingUp, Target, BarChart3, Rocket, Award } from "lucide-react";
 
 function FloatingParticles() {
   const [particles, setParticles] = useState<
@@ -21,12 +21,12 @@ function FloatingParticles() {
   >([]);
 
   useEffect(() => {
-    const newParticles = Array.from({ length: 35 }).map(() => ({
+    const newParticles = Array.from({ length: 25 }).map(() => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       delay: Math.random() * 4,
-      duration: 8 + Math.random() * 8,
-      size: 1 + Math.random() * 3,
+      duration: 8 + Math.random() * 6,
+      size: 1 + Math.random() * 2,
     }));
     setParticles(newParticles);
   }, []);
@@ -36,7 +36,7 @@ function FloatingParticles() {
       {particles.map((p, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-yellow-300 blur-[1.5px]"
+          className="absolute rounded-full bg-yellow-300/40 blur-[1px]"
           style={{
             top: p.top,
             left: p.left,
@@ -44,11 +44,8 @@ function FloatingParticles() {
             height: `${p.size}px`,
           }}
           animate={{
-            y: ["0%", "-120%"],
-            x: ["0%", Math.sin(i) * 30 + "%"],
-            opacity: [0, 0.9, 0],
-            scale: [0, 1.2, 0],
-            rotate: [0, 180, 360],
+            y: ["0%", "-100%"],
+            opacity: [0, 0.7, 0],
           }}
           transition={{
             duration: p.duration,
@@ -72,360 +69,292 @@ export default function Features() {
   const features = [
     {
       number: "01",
-      title: "Modular Architecture",
-      desc: "A flexible framework built to evolve as your vision expands — adaptive, reliable, limitless.",
+      title: "Advanced Code Evaluation",
+      desc: "AI-powered assessment engine that evaluates code quality, efficiency, and best practices in real-time.",
       img: Feature1,
       icon: Icon1,
-      featureIcon: Cpu,
-      color: "from-yellow-400 to-amber-400"
+      featureIcon: Code,
+      metrics: "95% accuracy rate"
     },
     {
       number: "02",
-      title: "Predictive Insights",
-      desc: "AI-enhanced visibility into your performance metrics and user behavior, instantly and intuitively.",
+      title: "Intelligent Performance Analytics",
+      desc: "Comprehensive insights into coding patterns, skill progression, and technical competency metrics.",
       img: Feature2,
       icon: Icon2,
-      featureIcon: Brain,
-      color: "from-amber-400 to-orange-400"
+      featureIcon: BarChart3,
+      metrics: "40+ metrics tracked"
     },
     {
       number: "03",
-      title: "Real-time Collaboration",
-      desc: "Seamless team synchronization with live updates and zero friction — wherever you are.",
+      title: "Real-Time Modifications",
+      desc: "Real-time code collaboration with the agent with integrated abilities to make it look natural.",
       img: Feature3,
       icon: Icon3,
       featureIcon: Users,
-      color: "from-orange-400 to-red-400"
+      metrics: "Zero latency"
     },
     {
       number: "04",
-      title: "Scalable Intelligence",
-      desc: "From early prototypes to enterprise scale — deploy a platform that grows with your ambition.",
+      title: "Safe Security",
+      desc: "There exists no reported case of failure using Interview Coder.",
       img: Feature4,
       icon: Icon4,
-      featureIcon: Scale,
-      color: "from-red-400 to-pink-500"
+      featureIcon: Shield,
+      metrics: "SOC 2 compliant"
     },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#141414] via-[#1a1a1a] to-[#0f0f0f] text-yellow-100 py-32 md:py-44">
-      {/* 🌟 Enhanced Cinematic Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Main Radial Glow */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
-          className="absolute top-1/2 left-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,215,100,0.15)_0%,rgba(20,20,20,0)_70%)] blur-3xl" />
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,rgba(255,230,150,0.2)_0deg,transparent_60deg,rgba(255,215,100,0.15)_120deg,transparent_180deg,rgba(255,230,150,0.2)_240deg,transparent_300deg)] rounded-full"
-          />
-        </motion.div>
+    <section className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-[#0e0e0e] via-[#1a1a1a] to-[#0e0e0e] text-yellow-200"
+>
 
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,230,128,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,230,128,0.2)_1px,transparent_1px)] bg-[size:70px_70px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      {/* Professional Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Subtle Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/2 via-transparent to-amber-500/1" />
+
+        {/* Professional Grid */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,230,128,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,230,128,0.08)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]" />
         </div>
 
-        {/* Floating Orbs */}
+        {/* Subtle Light Accents */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/12 blur-3xl rounded-full"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-400/3 blur-2xl rounded-full"
           animate={{
-            y: [0, -80, 0],
-            x: [0, 60, 0],
-            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{
-            duration: 9,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-amber-500/10 blur-3xl rounded-full"
+          className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-amber-500/2 blur-2xl rounded-full"
           animate={{
-            y: [0, 100, 0],
-            x: [0, -40, 0],
-            scale: [1, 1.4, 1],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
-            duration: 11,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 3
           }}
         />
 
-        {/* Enhanced Light Beams */}
+        {/* Subtle Light Beam */}
         <motion.div
           animate={{
-            opacity: [0.2, 0.7, 0.2],
-            rotate: [-4, 4, -4],
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-0 top-0 w-[45vw] h-full bg-[linear-gradient(115deg,rgba(255,230,150,0.18)_0%,rgba(255,230,150,0)_80%)] blur-[160px] mix-blend-screen"
-        />
-        <motion.div
-          animate={{
-            opacity: [0.2, 0.7, 0.2],
-            rotate: [4, -4, 4],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute right-0 top-0 w-[45vw] h-full bg-[linear-gradient(-115deg,rgba(255,230,150,0.18)_0%,rgba(255,230,150,0)_80%)] blur-[160px] mix-blend-screen"
+          className="absolute left-0 top-0 w-[35vw] h-full bg-[linear-gradient(115deg,rgba(255,230,150,0.05)_0%,rgba(255,230,150,0)_70%)] blur-[100px] mix-blend-screen"
         />
       </div>
 
-      {/* Enhanced Background Visuals */}
+      {/* Background Visuals */}
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 opacity-30 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 opacity-20 blur-2xl"
         animate={{
-          y: [0, -20, 0],
-          rotate: [0, 5, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <Image src={BlurredShapeGray} width={760} height={668} alt="" />
-      </motion.div>
-      <motion.div
-        className="pointer-events-none absolute bottom-0 right-1/2 -z-10 translate-x-[60%] opacity-35 blur-3xl"
-        animate={{
-          y: [0, 20, 0],
-          rotate: [0, -5, 0],
+          y: [0, -15, 0],
         }}
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
+          ease: "easeInOut"
         }}
       >
-        <Image src={BlurredShape} width={760} height={668} alt="" />
+        <Image src={BlurredShapeGray} width={600} height={500} alt="" />
       </motion.div>
 
       <FloatingParticles />
 
-      {/* Enhanced Header */}
-      <div className="mx-auto max-w-6xl px-6 text-center mb-28 relative z-10">
-        {/* Trust Badge */}
+      {/* Header */}
+      <div className="mx-auto max-w-6xl px-6 text-center mb-20 relative z-10">
+        {/* Professional Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-3 mb-8 px-6 py-3 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 backdrop-blur-md"
+          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-lg bg-yellow-400/10 border border-yellow-400/15 backdrop-blur-sm"
         >
-          <Sparkles className="w-5 h-5 text-yellow-400" />
-          <span className="text-yellow-400 text-sm font-semibold tracking-wider">CORE PLATFORM FEATURES</span>
-          <Zap className="w-5 h-5 text-yellow-400" />
+          <Rocket className="w-4 h-4 text-yellow-400" />
+          <span className="text-yellow-400 text-sm font-medium tracking-wide">ENTERPRISE FEATURES</span>
         </motion.div>
 
-        {/* Main Heading */}
+        {/* Professional Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
           className="relative"
         >
-          <motion.h2
-            className="text-6xl md:text-8xl font-black tracking-tight mb-6"
-            animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-            style={{
-              backgroundImage: "linear-gradient(135deg, #fef3c7 0%, #fde68a 25%, #fcd34d 50%, #fbbf24 75%, #f59e0b 100%)",
-              backgroundSize: "400% 400%",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-              textShadow: "0 0 40px rgba(255, 230, 120, 0.4)"
-            }}
-          >
-            The Core{" "}
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent">
-              Systems
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Platform{" "}
+            <span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+              Capabilities
             </span>
-          </motion.h2>
+          </h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-2xl md:text-3xl text-yellow-200/90 font-light max-w-4xl mx-auto leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Powering Our <span className="text-yellow-400 font-semibold">Platform</span> with Precision Engineering
+            Engineered to Score High even in the Hardest Interviews
           </motion.p>
-
-          {/* Heading Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/25 via-amber-400/20 to-orange-400/25 blur-3xl scale-150 opacity-20 -z-10" />
         </motion.div>
 
-        {/* Enhanced Description */}
-        <motion.p
+        {/* Metrics Bar */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-8 text-yellow-100/80 text-xl leading-relaxed max-w-3xl mx-auto font-light"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex justify-center items-center gap-8 mt-12 flex-wrap"
         >
-          Every module is precision-engineered to amplify speed, insight, and collaboration.
-        </motion.p>
+          {[
+            { icon: Target, value: "93%", label: "Success Rate" },
+            { icon: Users, value: "100K+", label: "Active Users" },
+            { icon: Award, value: "95%", label: "Satisfaction" },
+          ].map((metric, i) => (
+            <motion.div
+              key={metric.label}
+              className="flex items-center gap-3 text-white/60"
+              whileHover={{ scale: 1.05 }}
+            >
+              <metric.icon className="w-5 h-5 text-yellow-400" />
+              <div className="text-left">
+                <div className="text-2xl font-bold text-white">{metric.value}</div>
+                <div className="text-sm">{metric.label}</div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* 🎯 Enhanced 2x2 Grid */}
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl px-6 relative z-10">
+      {/* Professional Features Grid */}
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl px-6 relative z-10">
         {features.map((f, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 60, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: i * 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15, duration: 0.6 }}
             viewport={{ once: true }}
             onHoverStart={() => setHoveredFeature(i)}
             onHoverEnd={() => setHoveredFeature(null)}
             whileHover={{
               scale: 1.02,
-              y: -5
             }}
-            className="relative group cursor-pointer"
+            className="relative group"
           >
-            {/* Main Card Container */}
-            <div className="relative bg-gradient-to-br from-[#111111] via-[#0a0a0a] to-[#151515] border-2 border-yellow-400/20 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-yellow-400/50 hover:shadow-[0_0_60px_rgba(255,220,100,0.3)] h-full">
-
-              {/* Animated Border Glow */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${f.color} opacity-0 group-hover:opacity-25 blur-xl transition-opacity duration-500`} />
-
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,230,128,0.4),transparent_50%)]" />
-              </div>
-
-              {/* Shine Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            {/* Professional Card */}
+            <div className="relative bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-white/10 rounded-xl p-6 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-yellow-400/30 hover:shadow-[0_0_30px_rgba(255,230,120,0.1)] h-full">
 
               {/* Content Layout */}
-              <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8">
-                {/* Enhanced Image Block */}
+              <div className="relative z-10 flex flex-col lg:flex-row items-start gap-6">
+                {/* Image Block */}
                 <motion.div
-                  className="relative w-full lg:w-3/5 h-72 rounded-2xl overflow-hidden shadow-2xl group/image"
+                  className="relative w-full lg:w-2/5 h-48 rounded-lg overflow-hidden"
                   animate={{
-                    scale: hoveredFeature === i ? 1.05 : 1,
+                    scale: hoveredFeature === i ? 1.03 : 1,
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {/* Image Container */}
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                  <div className="relative w-full h-full overflow-hidden rounded-lg bg-white/5">
                     <Image
                       src={f.img}
                       alt={f.title}
-                      className="object-cover w-full h-full opacity-95 transition-all duration-700 group-hover/image:scale-110"
+                      className="object-cover w-full h-full opacity-90"
                     />
-
-                    {/* Enhanced Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                   </div>
 
-                  {/* Enhanced Icon Badge */}
+                  {/* Icon Badge */}
                   <motion.div
-                    className="absolute bottom-4 right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(255,230,128,0.5)] border-2 border-yellow-300/50"
-                    animate={{
-                      scale: hoveredFeature === i ? [1, 1.2, 1] : 1,
-                      rotate: hoveredFeature === i ? [0, 10, 0] : 0,
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Image src={f.icon} alt="icon" width={32} height={32} className="filter drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
-
-                    {/* Icon Glow */}
-                    <div className="absolute inset-0 bg-yellow-400/30 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </motion.div>
-
-                  {/* Floating Feature Icon */}
-                  <motion.div
-                    className="absolute top-4 left-4 p-3 rounded-2xl bg-black/50 backdrop-blur-md border border-yellow-400/30"
-                    animate={{
-                      y: hoveredFeature === i ? [0, -5, 0] : 0,
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <f.featureIcon className="w-6 h-6 text-yellow-400" />
-                  </motion.div>
-                </motion.div>
-
-                {/* Enhanced Text Content */}
-                <motion.div
-                  className="flex flex-col text-left w-full lg:w-2/5"
-                  animate={{
-                    x: hoveredFeature === i ? 5 : 0,
-                  }}
-                >
-                  {/* Number Badge */}
-                  <motion.div
-                    className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 w-fit"
+                    className="absolute bottom-3 right-3 w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg flex items-center justify-center shadow-lg border border-yellow-300/30"
                     animate={{
                       scale: hoveredFeature === i ? 1.1 : 1,
                     }}
                   >
-                    <span className="text-yellow-400 text-sm font-bold tracking-widest">
-                      {f.number}
-                    </span>
+                    <Image src={f.icon} alt="icon" width={24} height={24} />
                   </motion.div>
 
+                  {/* Feature Icon */}
+                  <div className="absolute top-3 left-3 p-2 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10">
+                    <f.featureIcon className="w-4 h-4 text-yellow-400" />
+                  </div>
+                </motion.div>
+
+                {/* Text Content */}
+                <div className="flex flex-col text-left w-full lg:w-3/5">
+                  {/* Header with Number and Metric */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20">
+                        <span className="text-yellow-400 text-sm font-bold">
+                          {f.number}
+                        </span>
+                      </div>
+                      <div className="text-sm text-yellow-400 font-medium bg-yellow-400/10 px-2 py-1 rounded">
+                        {f.metrics}
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Title */}
-                  <motion.h3
-                    className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-wide"
-                    animate={{
-                      y: hoveredFeature === i ? -2 : 0,
-                    }}
-                  >
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     {f.title}
-                  </motion.h3>
+                  </h3>
 
                   {/* Description */}
-                  <motion.p
-                    className="text-yellow-100/80 text-lg leading-relaxed font-light"
-                    animate={{
-                      y: hoveredFeature === i ? -1 : 0,
-                    }}
-                  >
+                  <p className="text-white/70 text-sm leading-relaxed font-light mb-4">
                     {f.desc}
-                  </motion.p>
-                </motion.div>
-              </div>
+                  </p>
 
-              {/* Floating Elements */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full blur-sm"
-                animate={{
-                  scale: [1, 1.8, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: i * 0.5
-                }}
-              />
+                  {/* Feature List */}
+                  <div className="space-y-2 mt-2">
+                    {[
+                      "Real-time evaluation",
+                      "Enterprise scalability",
+                      "Advanced analytics"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-2 text-white/60 text-sm">
+                        <div className="w-1 h-1 bg-yellow-400 rounded-full" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f0f0f] to-transparent pointer-events-none" />
+      {/* CTA Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="mt-16 text-center relative z-10"
+      >
+        <div className="inline-flex flex-col sm:flex-row items-center gap-6 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div className="flex items-center gap-3">
+            <Zap className="w-5 h-5 text-yellow-400" />
+            <span className="text-white font-semibold">Ready to Take your Career to the Next Level??</span>
+          </div>
+          <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-amber-400 text-black font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+            Start Free Trial
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Bottom Gradient */}
     </section>
   );
 }

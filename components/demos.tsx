@@ -28,7 +28,7 @@ export default function Demos() {
   }, []);
 
   return (
-    <section className="relative min-h-screen py-40 overflow-hidden bg-gradient-to-b from-[#0e0e0e] via-[#1a1a1a] to-[#0f0f0f] text-yellow-200">
+    <section className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-b from-[#0e0e0e] via-[#1a1a1a] to-[#0f0f0f] text-yellow-200">
       {/* ✨ Floating Particles */}
       {mounted && (
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -80,7 +80,7 @@ export default function Demos() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-6xl md:text-8xl font-black tracking-tight text-white mb-6"
+            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6"
           >
             Watch{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-400 bg-[length:200%_200%] animate-gradient">

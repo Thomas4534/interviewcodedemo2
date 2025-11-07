@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "./logo";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Search, Zap, Brain, Cpu } from "lucide-react";
 
 export default function Header() {
   const [query, setQuery] = useState("");
@@ -14,24 +14,29 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const faqSuggestions = [
-    "What are the most common coding interview questions?",
-    "How do I explain time complexity?",
-    "What is the difference between BFS and DFS?",
-    "How can I optimize my dynamic programming solutions?",
-    "How should I prepare for system design interviews?",
+    "What is Interview Coder ?",
+    "Can I get a free trial?",
+    "How does Interview Coder works?",
+    "Does Interview Coder work?"
   ];
 
   const faqAnswers: Record<string, string> = {
-    "What are the most common coding interview questions?":
-      "You’ll often see arrays, strings, recursion, linked lists, and trees — LeetCode-style fundamentals.",
-    "How do I explain time complexity?":
-      "Focus on how input size affects runtime. Use Big O notation like O(1), O(n), O(log n), or O(n²).",
-    "What is the difference between BFS and DFS?":
-      "BFS explores level by level (queue), DFS dives deep first (stack or recursion).",
-    "How can I optimize my dynamic programming solutions?":
-      "Use memoization to cache results or tabulation to build bottom-up.",
-    "How should I prepare for system design interviews?":
-      "Study scalability concepts: load balancing, caching, databases, and microservices.",
+
+    "What is Interview Coder ?":
+
+      "Interview Coder is a platform launched in 2022 that helps you cheat during your coding interviews.",
+
+    "Can I get a free trial?":
+
+      "Yes, Interview Coder offers a one month free trial.",
+
+    "How does Interview Coder works?":
+
+      "Interview Coder opens up a tab on your computer that answers the question of the interviewer in real-time.",
+
+    "Does Interview Coder work?":
+
+      "Yes developers have used Interview Coder to get over 50 000+ jobs.",
   };
 
   // Handle search suggestions
@@ -108,35 +113,65 @@ export default function Header() {
               <Logo />
             </motion.div>
 
-            {/* Search bar */}
+            {/* Search bar - naturally integrated */}
             <div className="relative flex-1 hidden md:flex items-center text-yellow-200">
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ask an interview question..."
-                className="w-full bg-transparent border-none focus:outline-none focus:ring-0 placeholder-yellow-300/40 text-yellow-100 text-sm tracking-wide"
-              />
-              <AnimatePresence>
-                {suggestions.length > 0 && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    className="absolute left-0 mt-8 w-full bg-black/80 border border-yellow-400/20 rounded-lg shadow-[0_0_20px_rgba(255,230,128,0.15)] z-50 backdrop-blur-md"
-                  >
-                    {suggestions.map((s, i) => (
-                      <li
-                        key={i}
-                        onClick={() => handleSelect(s)}
-                        className="px-4 py-2 text-sm text-yellow-100 hover:bg-yellow-400/10 cursor-pointer"
-                      >
-                        {s}
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
+              <div className="relative w-full">
+                <div className="flex items-center gap-3">
+                  <Search className="w-4 h-4 text-yellow-400/60" />
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Ask an interview question..."
+                    className="w-full bg-transparent border-none focus:outline-none focus:ring-0 placeholder-yellow-300/40 text-yellow-100 text-sm tracking-wide"
+                  />
+                </div>
+
+                {/* Enhanced Suggestions Dropdown */}
+                <AnimatePresence>
+                  {suggestions.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute left-0 mt-2 w-full bg-gray-900/95 border border-yellow-400/20 rounded-xl shadow-2xl shadow-yellow-400/10 backdrop-blur-xl z-50 overflow-hidden"
+                    >
+                      {suggestions.map((s, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                          onClick={() => handleSelect(s)}
+                          whileHover={{
+                            scale: 1.02,
+                            backgroundColor: "rgba(255,230,128,0.1)",
+                          }}
+                          className="px-4 py-3 cursor-pointer border-b border-yellow-400/10 last:border-b-0 transition-all duration-200 group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <motion.div
+                              whileHover={{ scale: 1.2, rotate: 5 }}
+                              className="text-yellow-400/60 group-hover:text-yellow-400 transition-colors"
+                            >
+                              <Brain className="w-4 h-4" />
+                            </motion.div>
+                            <span className="flex-1 text-yellow-100 text-sm">{s}</span>
+                            <motion.div
+                              initial={{ opacity: 0, x: -10 }}
+                              whileHover={{ opacity: 1, x: 0 }}
+                              className="text-yellow-400"
+                            >
+                              <Zap className="w-3 h-3" />
+                            </motion.div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Auth links */}
@@ -162,25 +197,57 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Floating responses */}
-      <div className="fixed top-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-40">
-        <AnimatePresence>
-          {responses.map((r) => (
+      {/* Enhanced Floating responses */}
+      <div className="fixed top-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-40">
+        <AnimatePresence mode="popLayout">
+          {responses.map((r, index) => (
             <motion.div
               key={r.id}
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              layout
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              className="relative text-yellow-100 text-sm px-6 py-3 rounded-full border border-yellow-400/30 shadow-[0_0_25px_rgba(255,230,128,0.15)] backdrop-blur-md bg-black/40"
+              exit={{ opacity: 0, y: -20, scale: 0.8 }}
+              transition={{
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+                layout: { duration: 0.3 }
+              }}
+              className="relative group"
             >
-              <button
-                onClick={() => handleDismiss(r.id)}
-                className="absolute -top-1 -right-1 bg-yellow-400/20 hover:bg-yellow-400/40 text-yellow-200 rounded-full p-1 transition"
+              <motion.div
+                whileHover={{ scale: 1.02, y: -2 }}
+                className="text-yellow-100 text-sm px-6 py-4 rounded-2xl border border-yellow-400/30 shadow-2xl backdrop-blur-xl bg-gray-900/95 max-w-md"
               >
-                <X size={12} />
-              </button>
-              {r.text}
+                <div className="flex items-start gap-3">
+                  <motion.div
+                    animate={{ rotate: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="flex-shrink-0 mt-0.5"
+                  >
+                    <Cpu className="w-4 h-4 text-yellow-400" />
+                  </motion.div>
+                  <span className="flex-1 leading-relaxed">{r.text}</span>
+                </div>
+
+                <motion.button
+                  onClick={() => handleDismiss(r.id)}
+                  whileHover={{ scale: 1.1, backgroundColor: "rgba(255,230,128,0.2)" }}
+                  whileTap={{ scale: 0.9 }}
+                  className="absolute -top-2 -right-2 bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-200 rounded-full p-1.5 transition-all duration-200 backdrop-blur-sm border border-yellow-400/20"
+                >
+                  <X size={12} />
+                </motion.button>
+              </motion.div>
+
+              {/* Connection line animation for multiple responses */}
+              {index < responses.length - 1 && (
+                <motion.div
+                  initial={{ scaleY: 0, opacity: 0 }}
+                  animate={{ scaleY: 1, opacity: 0.3 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
+                  className="w-0.5 h-4 bg-yellow-400/30 mx-auto mt-1"
+                />
+              )}
             </motion.div>
           ))}
         </AnimatePresence>

@@ -10,6 +10,7 @@ import Features from "@/components/features";
 import Demos from "@/components/demos";
 import Testimonials from "@/components/testimonials";
 import Cta from "@/components/cta";
+import SuccessStories from "@/components/success-stories"; // 👈 new import
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Features />
       <Demos />
       <Testimonials />
+      <SuccessStories /> {/* 👈 placeholder for your future code */}
       <Cta />
     </>
   );

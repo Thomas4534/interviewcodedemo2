@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { CheckCircle2, XCircle, Sparkles, Zap, Crown, Rocket, Scale, Brain } from "lucide-react";
+import { CheckCircle2, XCircle, Sparkles, Zap, Crown, Rocket, Scale, Brain, Users, TrendingUp, Shield, Clock } from "lucide-react";
 
 export default function Workflows() {
   const [mounted, setMounted] = useState(false);
@@ -14,29 +14,43 @@ export default function Workflows() {
 
   useEffect(() => {
     setMounted(true);
-    const randomParticles = Array.from({ length: 40 }).map(() => ({
+    const randomParticles = Array.from({ length: 25 }).map(() => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
-      delay: Math.random() * 6,
-      duration: 10 + Math.random() * 8,
-      size: 1 + Math.random() * 3,
+      delay: Math.random() * 4,
+      duration: 8 + Math.random() * 6,
+      size: 1 + Math.random() * 2,
     }));
     setParticles(randomParticles);
   }, []);
 
   const competitors = [
-    { name: "InterviewCoder", color: "text-yellow-300", highlight: true, icon: Crown },
-    { name: "CodeMaster AI", color: "text-yellow-100/60", icon: Brain },
-    { name: "PrepGenius", color: "text-yellow-100/60", icon: Scale },
-    { name: "AlgoPro", color: "text-yellow-100/60", icon: Rocket },
-  ];
+  { name: "InterviewCoder", color: "text-yellow-300", highlight: true, icon: Crown },
+  {
+    name: "<span class='transition-all duration-[3000ms] blur-[3px] hover:blur-[0px] select-none'>CodeMaster AI</span>",
+    color: "text-yellow-100/60",
+    icon: Brain,
+  },
+  {
+    name: "<span class='transition-all duration-[3000ms] blur-[3px] hover:blur-[0px] select-none'>PrepGenius</span>",
+    color: "text-yellow-100/60",
+    icon: Scale,
+  },
+  {
+    name: "<span class='transition-all duration-[3000ms] blur-[3px] hover:blur-[0px] select-none'>AlgoPro</span>",
+    color: "text-yellow-100/60",
+    icon: Rocket,
+  },
+    ];
+
+
 
   const features = [
     "Adaptive Learning Paths",
     "AI-Powered Interview Simulation",
     "Real-Time Code Feedback",
     "Performance Analytics",
-    "Company-Specific Question Sets",
+    "100% Undetectable",
   ];
 
   const results = [
@@ -48,86 +62,195 @@ export default function Workflows() {
 
   return (
     <section
-      className="relative py-32 md:py-44 text-yellow-200 overflow-hidden"
-      style={{ backgroundColor: "#121212" }}
+      className="relative min-h-screen py-40 overflow-hidden bg-gradient-to-b from-[#0e0e0e] via-[#1a1a1a] to-[#0e0e0e] text-yellow-200"
     >
-      {/* 🌟 Enhanced Cinematic Background */}
+      {/* Enhanced Background with Intense White Lighting */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Main Radial Glow */}
+        {/* Intense White Lighting Effects */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
-          className="absolute top-1/2 left-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,215,100,0.12)_0%,rgba(18,18,18,0)_70%)] blur-3xl" />
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,rgba(255,230,150,0.15)_0deg,transparent_60deg,rgba(255,215,100,0.12)_120deg,transparent_180deg,rgba(255,230,150,0.15)_240deg,transparent_300deg)] rounded-full"
-          />
-        </motion.div>
-
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-25">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,230,128,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,230,128,0.15)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-        </div>
-
-        {/* Floating Orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/10 blur-3xl rounded-full"
+          className="absolute top-1/3 right-1/4 w-96 h-96 bg-white/20 blur-3xl rounded-full"
           animate={{
-            y: [0, -80, 0],
-            x: [0, 60, 0],
-            scale: [1, 1.3, 1],
+            opacity: [0.15, 0.3, 0.15],
+            scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 9,
+            duration: 7,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-amber-500/8 blur-3xl rounded-full"
+          className="absolute bottom-1/4 left-1/3 w-88 h-88 bg-white/15 blur-3xl rounded-full"
           animate={{
-            y: [0, 100, 0],
-            x: [0, -40, 0],
-            scale: [1, 1.4, 1],
+            opacity: [0.12, 0.25, 0.12],
+            scale: [1.1, 0.9, 1.1],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/12 blur-3xl rounded-full"
+          animate={{
+            opacity: [0.08, 0.18, 0.08],
+            scale: [0.9, 1.3, 0.9],
           }}
           transition={{
             duration: 11,
             repeat: Infinity,
             ease: "easeInOut",
+            delay: 1
+          }}
+        />
+
+        {/* Additional White Light Sources */}
+        <motion.div
+          className="absolute top-1/5 left-1/5 w-72 h-72 bg-white/18 blur-3xl rounded-full"
+          animate={{
+            opacity: [0.1, 0.22, 0.1],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
             delay: 3
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-1/5 w-64 h-64 bg-white/16 blur-3xl rounded-full"
+          animate={{
+            opacity: [0.09, 0.2, 0.09],
+            scale: [1.05, 0.95, 1.05],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
           }}
         />
 
         {/* Enhanced Light Beams */}
         <motion.div
           animate={{
-            opacity: [0.2, 0.6, 0.2],
-            rotate: [-4, 4, -4],
+            opacity: [0.12, 0.3, 0.12],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-0 top-0 w-[45vw] h-full bg-[linear-gradient(115deg,rgba(255,230,150,0.15)_0%,rgba(255,230,150,0)_80%)] blur-[160px] mix-blend-screen"
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-0 top-0 w-[40vw] h-full bg-[linear-gradient(115deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0)_70%)] blur-[120px] mix-blend-screen"
         />
         <motion.div
           animate={{
-            opacity: [0.2, 0.6, 0.2],
-            rotate: [4, -4, 4],
+            opacity: [0.08, 0.2, 0.08],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute right-0 top-0 w-[45vw] h-full bg-[linear-gradient(-115deg,rgba(255,230,150,0.15)_0%,rgba(255,230,150,0)_80%)] blur-[160px] mix-blend-screen"
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 5 }}
+          className="absolute right-0 top-0 w-[30vw] h-full bg-[linear-gradient(245deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0)_70%)] blur-[100px] mix-blend-screen"
         />
+
+        {/* White Light Streaks */}
+        <motion.div
+          className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/25 to-transparent"
+          animate={{
+            opacity: [0, 0.4, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div
+          className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"
+          animate={{
+            opacity: [0, 0.3, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+        <motion.div
+          className="absolute top-0 left-2/3 w-px h-full bg-gradient-to-b from-transparent via-white/18 to-transparent"
+          animate={{
+            opacity: [0, 0.25, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+
+        {/* Professional Grid */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,230,128,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,230,128,0.08)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]" />
+        </div>
+
+        {/* Subtle Light Accents */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-400/3 blur-2xl rounded-full"
+          animate={{
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-amber-500/2 blur-2xl rounded-full"
+          animate={{
+            opacity: [0.1, 0.3, 0.1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+
+        {/* Floating White Particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white/50 rounded-full blur-[0.5px]"
+              animate={{
+                y: ["0%", "-100%"],
+                x: [0, Math.random() * 100 - 50],
+                opacity: [0, 0.7, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 12 + Math.random() * 10,
+                repeat: Infinity,
+                delay: Math.random() * 8,
+                ease: "linear"
+              }}
+              style={{
+                left: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* ✨ Enhanced Floating Particles */}
+      {/* Subtle Particles */}
       {mounted && (
         <div className="absolute inset-0 overflow-hidden">
           {particles.map((p, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-yellow-300 blur-[2px]"
+              className="absolute rounded-full bg-yellow-300/30 blur-[0.5px]"
               style={{
                 top: p.top,
                 left: p.left,
@@ -135,11 +258,8 @@ export default function Workflows() {
                 height: `${p.size}px`,
               }}
               animate={{
-                y: ["0%", "-150%"],
-                x: ["0%", Math.sin(i) * 40 + "%"],
-                opacity: [0, 0.9, 0],
-                scale: [0, 1.2, 0],
-                rotate: [0, 180, 360],
+                y: ["0%", "-100%"],
+                opacity: [0, 0.6, 0],
               }}
               transition={{
                 duration: p.duration,
@@ -152,218 +272,186 @@ export default function Workflows() {
         </div>
       )}
 
-      {/* 📦 Enhanced Content Container */}
+      {/* Content Container */}
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-        {/* Enhanced Header */}
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
-          className="mb-24"
+          className="mb-20"
         >
-          {/* Trust Badge */}
+          {/* Professional Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-3 mb-8 px-6 py-3 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 backdrop-blur-md"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-lg bg-yellow-400/10 border border-yellow-400/15 backdrop-blur-sm"
           >
-            <Sparkles className="w-5 h-5 text-yellow-400" />
-            <span className="text-yellow-400 text-sm font-semibold tracking-wider">ENTERPRISE-GRADE WORKFLOWS</span>
-            <Zap className="w-5 h-5 text-yellow-400" />
+            <Sparkles className="w-4 h-4 text-yellow-400" />
+            <span className="text-yellow-400 text-sm font-medium tracking-wide">ENTERPRISE WORKFLOWS</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Professional Heading */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.h2
-              className="text-6xl md:text-8xl font-black tracking-tight mb-6"
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 100%"],
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              style={{
-                backgroundImage: "linear-gradient(135deg, #fef3c7 0%, #fde68a 25%, #fcd34d 50%, #fbbf24 75%, #f59e0b 100%)",
-                backgroundSize: "400% 400%",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                textShadow: "0 0 40px rgba(255, 230, 120, 0.4)"
-              }}
-            >
-              Seamless
-              <br />
-              <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent">
-                Workflows
-              </span>
-            </motion.h2>
+            <h2 className="text-8xl md:text-7xl font-bold text-white mb-6">
+              Optimized{" "}
 
-            {/* Heading Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/25 via-amber-400/20 to-orange-400/25 blur-3xl scale-150 opacity-20 -z-10" />
+              <span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+                 Performances
+              </span>
+            </h2>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed font-light"
+            >
+              Substantially your chances of getting hired at your dream company
+            </motion.p>
           </motion.div>
 
-          {/* Enhanced Description */}
-          <motion.p
+          {/* Metrics Bar */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="mt-8 max-w-3xl mx-auto text-xl text-yellow-100/90 leading-relaxed md:leading-loose font-light"
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex justify-center items-center gap-8 mt-12 flex-wrap"
           >
-            Streamline your engineering pipeline with intelligent automation, effortless scaling, and adaptive systems built for modern teams.
-          </motion.p>
+            {[
+              { icon: Clock, value: "100%", label: "Love the Free Trial" },
+              { icon: Users, value: "99%", label: "User Satisfaction" },
+              { icon: TrendingUp, value: "93%", label: "More Likely to get Hired" },
+            ].map((metric, i) => (
+              <motion.div
+                key={metric.label}
+                className="flex items-center gap-3 text-white/60"
+                whileHover={{ scale: 1.05 }}
+              >
+                <metric.icon className="w-5 h-5 text-yellow-400" />
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-white">{metric.value}</div>
+                  <div className="text-sm">{metric.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* 🌐 Enhanced Workflow Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-32">
+        {/* Professional Workflow Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
           {[
             {
-              title: "Adaptive Systems",
-              desc: "Workflows that evolve with your team — flexible, intelligent, and built to learn as you grow.",
+              title: "Adaptive Learning Paths",
+              desc: "Personalized learning journeys that adapt to individual skill levels and learning patterns.",
               icon: Brain,
-              color: "from-yellow-400 to-amber-400"
+              metrics: "Personalized Paths"
             },
             {
-              title: "Instant Scaling",
-              desc: "Deploy updates or entire architectures in seconds with dynamic infrastructure built for agility.",
-              icon: Rocket,
-              color: "from-amber-400 to-orange-400"
-            },
-            {
-              title: "AI-Driven Automation",
-              desc: "Leverage context-aware AI to handle the busywork, from testing to deployment and beyond.",
+              title: "Real-time Evaluation",
+              desc: "Instant code assessment with detailed feedback and improvement suggestions.",
               icon: Zap,
-              color: "from-orange-400 to-red-400"
+              metrics: "Instant Feedback"
+            },
+            {
+              title: "Safe Environment",
+              desc: "No user ever has been caught. Users report feeling very safe using Interview Coder in any test.",
+              icon: Users,
+              metrics: "Fast Responses"
             },
           ].map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: i * 0.3, type: "spring", stiffness: 100 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
               viewport={{ once: true }}
               onHoverStart={() => setHoveredCard(i)}
               onHoverEnd={() => setHoveredCard(null)}
-              className="relative group cursor-pointer"
+              className="relative group"
             >
-              {/* Card Container */}
-              <div className="relative bg-gradient-to-br from-[#111111] via-[#0a0a0a] to-[#151515] border-2 border-yellow-500/20 rounded-3xl p-10 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-yellow-400/50 hover:shadow-[0_0_60px_rgba(255,220,100,0.3)] h-full">
-
-                {/* Animated Border Glow */}
-                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
-
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-15">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,230,128,0.4),transparent_50%)]" />
-                </div>
-
-                {/* Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              {/* Professional Card */}
+              <div className="relative bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-white/10 rounded-xl p-6 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-yellow-400/30 hover:shadow-[0_0_30px_rgba(255,230,120,0.1)] h-full">
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
-                  <motion.div
-                    className="mb-6"
-                    animate={{
-                      scale: hoveredCard === i ? [1, 1.2, 1] : 1,
-                      rotate: hoveredCard === i ? [0, 10, 0] : 0,
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${item.color} bg-opacity-20 border border-yellow-400/30`}>
-                      <item.icon className="w-8 h-8 text-yellow-400" />
+                  {/* Header with Icon and Metric */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                      <item.icon className="w-6 h-6 text-yellow-400" />
                     </div>
-                  </motion.div>
+                    <div className="text-sm text-yellow-400 font-medium bg-yellow-400/10 px-2 py-1 rounded">
+                      {item.metrics}
+                    </div>
+                  </div>
 
                   {/* Title */}
-                  <motion.h3
-                    className="text-2xl font-bold text-yellow-300 mb-4 tracking-wide"
-                    animate={{
-                      y: hoveredCard === i ? -2 : 0,
-                    }}
-                  >
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     {item.title}
-                  </motion.h3>
+                  </h3>
 
                   {/* Description */}
-                  <motion.p
-                    className="text-yellow-100/80 text-base leading-relaxed font-light"
-                    animate={{
-                      y: hoveredCard === i ? -1 : 0,
-                    }}
-                  >
+                  <p className="text-white/70 text-sm leading-relaxed font-light mb-4">
                     {item.desc}
-                  </motion.p>
-                </div>
+                  </p>
 
-                {/* Floating Elements */}
-                <motion.div
-                  className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full blur-sm"
-                  animate={{
-                    scale: [1, 1.8, 1],
-                    opacity: [0.5, 1, 0.5],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.5
-                  }}
-                />
+                  {/* Feature List */}
+                  <div className="space-y-2">
+                    {[
+                      "AI-powered personalization",
+                      "Progress tracking",
+                      "Performance insights"
+                    ].map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2 text-white/60 text-sm">
+                        <div className="w-1 h-1 bg-yellow-400 rounded-full" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* 🏆 Enhanced Comparison Grid */}
+        {/* Professional Comparison Table */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
           className="overflow-x-auto"
         >
-          <div className="inline-block min-w-full align-middle rounded-3xl bg-black/60 border-2 border-yellow-400/20 shadow-2xl backdrop-blur-xl overflow-hidden">
-            <table className="min-w-full text-base text-yellow-100/90">
+          <div className="inline-block min-w-full align-middle rounded-xl bg-white/5 border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden">
+            <table className="min-w-full text-sm text-white/80">
               <thead>
-                <tr className="border-b-2 border-yellow-400/20 bg-yellow-400/5">
-                  <th className="py-6 px-8 text-left text-yellow-300/80 text-sm uppercase tracking-widest font-semibold">
-                    Feature
+                <tr className="border-b border-white/10 bg-white/5">
+                  <th className="py-4 px-6 text-left text-white/70 text-xs uppercase tracking-wider font-semibold">
+                    Platform Features
                   </th>
                   {competitors.map((c, i) => (
                     <th
                       key={i}
-                      className={`py-6 px-8 text-center font-bold ${
+                      className={`py-4 px-6 text-center font-semibold ${
                         c.highlight
-                          ? "text-yellow-300 text-lg bg-yellow-400/10 border-x border-yellow-400/20"
-                          : c.color + " text-sm"
+                          ? "text-yellow-300 bg-yellow-400/10 border-x border-white/10"
+                          : c.color
                       }`}
                     >
-                      <div className="flex items-center justify-center gap-3">
-                        <c.icon className={`w-5 h-5 ${c.highlight ? "text-yellow-400" : "text-yellow-400/60"}`} />
-                        {c.name}
+                      <div className="flex items-center justify-center gap-2">
+                        <c.icon className={`w-4 h-4 ${c.highlight ? "text-yellow-400" : "text-yellow-400/60"}`} />
+                        <span dangerouslySetInnerHTML={{ __html: c.name }} />
+
                         {c.highlight && (
-                          <motion.div
-                            animate={{
-                              scale: [1, 1.2, 1],
-                              rotate: [0, 5, 0],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: 1
-                            }}
-                          >
-                            <Crown className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                          </motion.div>
+                          <Crown className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                         )}
                       </div>
                     </th>
@@ -374,43 +462,36 @@ export default function Workflows() {
                 {features.map((feature, i) => (
                   <tr
                     key={i}
-                    className="border-t border-yellow-400/10 hover:bg-yellow-400/10 transition-all duration-300 group"
+                    className="border-t border-white/5 hover:bg-white/5 transition-colors duration-200 group"
                     onMouseEnter={() => setHoveredRow(i)}
                     onMouseLeave={() => setHoveredRow(null)}
                   >
-                    <td className="py-5 px-8 text-left font-semibold text-yellow-100/90 group-hover:text-yellow-200 transition-colors">
-                      <div className="flex items-center gap-3">
+                    <td className="py-4 px-6 text-left font-medium text-white/90 group-hover:text-white transition-colors">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-yellow-400/70" />
+                        {feature}
+                      </div>
+                    </td>
+                    {results.map((row, j) => (
+                      <td key={j} className="py-4 px-6 text-center group-hover:bg-white/5 transition-colors">
                         <motion.div
                           animate={{
                             scale: hoveredRow === i ? 1.1 : 1,
                           }}
                         >
-                          <CheckCircle2 className="w-5 h-5 text-yellow-400/70" />
-                        </motion.div>
-                        {feature}
-                      </div>
-                    </td>
-                    {results.map((row, j) => (
-                      <td key={j} className="py-5 px-8 text-center group-hover:bg-yellow-400/5 transition-colors">
-                        <motion.div
-                          animate={{
-                            scale: hoveredRow === i ? 1.2 : 1,
-                          }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        >
                           {row[i] ? (
                             <CheckCircle2
                               className={`inline-block ${
                                 j === 0
-                                  ? "text-yellow-400 drop-shadow-[0_0_15px_rgba(255,230,128,0.8)]"
+                                  ? "text-yellow-400"
                                   : "text-yellow-200/60"
                               }`}
-                              size={24}
+                              size={20}
                             />
                           ) : (
                             <XCircle
-                              className="inline-block text-red-400/70 drop-shadow-[0_0_10px_rgba(239,68,68,0.3)]"
-                              size={24}
+                              className="inline-block text-red-400/60"
+                              size={20}
                             />
                           )}
                         </motion.div>
@@ -423,25 +504,27 @@ export default function Workflows() {
           </div>
         </motion.div>
 
-        {/* Enhanced Bottom Tagline */}
+        {/* Professional CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-24"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-16"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 backdrop-blur-md">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-            <span className="text-yellow-400/90 text-sm tracking-widest uppercase font-semibold">
-              Built for the Future. Crafted for Developers.
-            </span>
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+          <div className="inline-flex flex-col sm:flex-row items-center gap-6 px-8 py-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+            <div className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-yellow-400" />
+              <span className="text-white font-semibold">Ready to boost your career ?</span>
+            </div>
+            <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-amber-400 text-black font-semibold rounded-lg hover:shadow-lg transition-all duration-300">
+              Schedule Demo
+            </button>
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none" />
+      {/* Bottom Gradient */}
+
     </section>
   );
 }
