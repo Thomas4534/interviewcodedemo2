@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Lock, Mail, ArrowRight, Zap, Cpu, Sparkles } from "lucide-react";
 
 export default function SignIn() {
@@ -19,47 +19,9 @@ export default function SignIn() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // ✅ Safe, TypeScript-compliant Framer Motion variants
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.95, y: 10 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-[#0e0e0e] px-4 py-20 overflow-hidden">
-      {/* Subtle Grid Background */}
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4 py-8 overflow-hidden">
+      {/* Animated Grid Background */}
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0 }}
@@ -69,132 +31,179 @@ export default function SignIn() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,230,120,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,230,120,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
       </motion.div>
 
-      {/* Floating dots for star-like visuals */}
+      {/* Floating Tech Elements */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-3 h-3 bg-yellow-400 rounded-full"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 0 }}
         animate={{
           opacity: [0.3, 0.8, 0.3],
+          scale: 1,
           y: [0, -40, 0],
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
       />
       <motion.div
         className="absolute top-1/3 right-1/3 w-2 h-2 bg-amber-400 rounded-full"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 0 }}
         animate={{
           opacity: [0.4, 0.7, 0.4],
+          scale: 1,
           y: [0, 30, 0],
         }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
       />
       <motion.div
         className="absolute bottom-1/4 left-1/2 w-2.5 h-2.5 bg-yellow-300 rounded-full"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 0 }}
         animate={{
           opacity: [0.5, 0.9, 0.5],
+          scale: 1,
           y: [0, -25, 0],
         }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
       />
 
-      {/* Glow Effect */}
+      {/* Glow Effects */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"
+        initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: [0.1, 0.2, 0.1],
           scale: [1, 1.1, 1],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
       />
 
+      {/* Main Container */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: {
+            duration: 0.8,
+            ease: "easeInOut",
+            when: "beforeChildren",
+            staggerChildren: 0.1,
+          },
+        }}
         className="w-full max-w-md relative z-10"
       >
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeInOut", delay: 0.1 },
+          }}
+          className="text-center mb-12"
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/20 backdrop-blur-sm"
           >
             <motion.div
+              initial={{ scale: 0 }}
               animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
               className="w-2 h-2 bg-yellow-400 rounded-full"
             />
             <span className="text-yellow-400 text-sm font-medium tracking-wider">
-              CODER 2.0
+              INTERVIEW CODER
             </span>
             <Cpu className="w-3 h-3 text-yellow-400" />
           </motion.div>
 
           <motion.h1
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeInOut", delay: 0.2 },
+            }}
             className="text-4xl font-bold text-white mb-4 tracking-tight"
           >
-            Access Your <br />
+            Access Your
+            <br />
             <span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
               Dashboard
             </span>
           </motion.h1>
 
           <motion.p
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeInOut", delay: 0.3 },
+            }}
             className="text-gray-400 text-lg font-light"
           >
-            Continue your journey with our{" "}
-            <span className="text-yellow-400 font-medium">
-              AI-powered interview platform
-            </span>
+            Continue your journey to technical excellence
           </motion.p>
         </motion.div>
 
         {/* Form Card */}
         <motion.form
-          variants={cardVariants}
           onSubmit={handleSubmit}
+          initial={{ opacity: 0, scale: 0.95, y: 10 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeInOut", delay: 0.4 },
+          }}
           className="bg-gray-800/80 rounded-3xl border border-gray-700/50 backdrop-blur-xl shadow-2xl p-8 space-y-8 relative overflow-hidden"
         >
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-3xl pointer-events-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           />
 
-          {/* Email Field */}
+          {/* Email */}
           <motion.div
-            variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="space-y-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeInOut", delay: 0.5 },
+            }}
+            className="space-y-3 group"
           >
-            <label className="block text-sm font-medium text-gray-300 tracking-wide">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 tracking-wide">
               <Mail className="w-4 h-4 inline mr-2 text-yellow-400" />
               EMAIL ADDRESS
             </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="enter@your.email"
-              className="w-full px-4 py-4 bg-gray-900/50 border border-gray-600 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all duration-300 font-mono tracking-wide"
-            />
+            <div className="relative">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="enter@your.email"
+                className="w-full px-4 py-4 bg-gray-900/50 border border-gray-600 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all duration-300 font-mono tracking-wide"
+              />
+            </div>
           </motion.div>
 
-          {/* Password Field */}
+          {/* Password */}
           <motion.div
-            variants={itemVariants}
             whileHover={{ scale: 1.02 }}
-            className="space-y-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeInOut", delay: 0.6 },
+            }}
+            className="space-y-3 group"
           >
             <div className="flex items-center justify-between">
-              <label className="block text-sm font-medium text-gray-300 tracking-wide">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300 tracking-wide">
                 <Lock className="w-4 h-4 inline mr-2 text-yellow-400" />
                 ACCESS CODE
               </label>
@@ -219,13 +228,13 @@ export default function SignIn() {
 
           {/* Submit */}
           <motion.button
-            variants={itemVariants}
             type="submit"
             disabled={isLoading}
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
             className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-400 text-black font-bold rounded-2xl hover:shadow-[0_0_40px_rgba(255,230,120,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             {isLoading ? (
               <motion.div
                 animate={{ rotate: 360 }}
@@ -244,8 +253,13 @@ export default function SignIn() {
 
         {/* Footer */}
         <motion.div
-          variants={itemVariants}
-          className="text-center mt-10 text-gray-400 text-sm"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeInOut", delay: 0.8 },
+          }}
+          className="text-center mt-8 text-gray-400 text-sm"
         >
           New to the platform?{" "}
           <Link
@@ -258,8 +272,13 @@ export default function SignIn() {
 
         {/* Trust Indicators */}
         <motion.div
-          variants={itemVariants}
-          className="flex justify-center items-center gap-8 mt-12 text-gray-500 text-sm pb-16"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, ease: "easeInOut", delay: 0.9 },
+          }}
+          className="flex justify-center items-center gap-8 mt-12 text-gray-500 text-sm"
         >
           <div className="flex items-center gap-2">
             <Sparkles className="w-3 h-3 text-yellow-400" />
