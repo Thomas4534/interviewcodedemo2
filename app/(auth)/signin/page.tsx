@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Lock, Mail, ArrowRight, Zap, Cpu, Sparkles } from "lucide-react";
 
 export default function SignIn() {
@@ -19,32 +19,32 @@ export default function SignIn() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Staggered animation variants
-  const containerVariants = {
+  // ✅ Fixed variant typings
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.1
-      }
-    }
+        ease: "easeInOut",
+        staggerChildren: 0.1,
+      },
+    },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 10 },
     visible: {
       opacity: 1,
@@ -52,9 +52,9 @@ export default function SignIn() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   return (
@@ -119,10 +119,7 @@ export default function SignIn() {
         className="w-full max-w-md relative z-10"
       >
         {/* Header */}
-        <motion.div
-          variants={itemVariants}
-          className="text-center mb-12"
-        >
+        <motion.div variants={itemVariants} className="text-center mb-12">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/20 backdrop-blur-sm"
@@ -148,10 +145,7 @@ export default function SignIn() {
             </span>
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-400 text-lg font-light"
-          >
+          <motion.p variants={itemVariants} className="text-gray-400 text-lg font-light">
             Continue your journey to technical excellence
           </motion.p>
         </motion.div>
@@ -162,7 +156,6 @@ export default function SignIn() {
           onSubmit={handleSubmit}
           className="bg-gray-800/80 rounded-3xl border border-gray-700/50 backdrop-blur-xl shadow-2xl p-8 space-y-8 relative overflow-hidden"
         >
-          {/* Card Glow Effect */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent rounded-3xl pointer-events-none"
             initial={{ opacity: 0 }}
@@ -171,11 +164,7 @@ export default function SignIn() {
           />
 
           {/* Email */}
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            className="space-y-3 group"
-          >
+          <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="space-y-3 group">
             <label htmlFor="email" className="block text-sm font-medium text-gray-300 tracking-wide">
               <Mail className="w-4 h-4 inline mr-2 text-yellow-400" />
               EMAIL ADDRESS
@@ -195,11 +184,7 @@ export default function SignIn() {
           </motion.div>
 
           {/* Password */}
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            className="space-y-3 group"
-          >
+          <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="space-y-3 group">
             <div className="flex items-center justify-between">
               <label htmlFor="password" className="block text-sm font-medium text-gray-300 tracking-wide">
                 <Lock className="w-4 h-4 inline mr-2 text-yellow-400" />
@@ -235,7 +220,6 @@ export default function SignIn() {
             whileTap={{ scale: 0.98 }}
             className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-400 text-black font-bold rounded-2xl hover:shadow-[0_0_40px_rgba(255,230,120,0.3)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
           >
-            {/* Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
 
             {isLoading ? (
@@ -254,10 +238,7 @@ export default function SignIn() {
           </motion.button>
 
           {/* Divider */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-4 text-gray-500 text-sm my-6"
-          >
+          <motion.div variants={itemVariants} className="flex items-center gap-4 text-gray-500 text-sm my-6">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
             <span className="tracking-wider">OR CONTINUE WITH</span>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
@@ -282,10 +263,7 @@ export default function SignIn() {
         </motion.form>
 
         {/* Footer */}
-        <motion.div
-          variants={itemVariants}
-          className="text-center mt-8 text-gray-400 text-sm"
-        >
+        <motion.div variants={itemVariants} className="text-center mt-8 text-gray-400 text-sm">
           New to the platform?{" "}
           <Link
             href="#"
